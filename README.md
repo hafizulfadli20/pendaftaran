@@ -1,11 +1,13 @@
 # pendaftaran
 Aplikasi Pendaftaran Siswa Baru - Youtube #EDT
+https://www.youtube.com/watch?v=RtTqVmfNb-Y&list=PLusV1iDWr_sB3MEXgXOhW9BOwTD_cZxfp
 
 Menggunakan :
 - Template SB-Admin 2
 - Bootstrap 4
 - PHP 7 NATIVE
 - MySQL
+- Database di folder "db/pendaftaran_siswa.sql"
 
 Pengguna :
 - User : Admin, Siswa
