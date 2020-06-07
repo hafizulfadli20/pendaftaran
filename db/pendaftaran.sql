@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 08, 2020 at 02:49 PM
+-- Generation Time: Jun 08, 2020 at 12:15 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -42,7 +42,11 @@ CREATE TABLE `nilai` (
 --
 
 INSERT INTO `nilai` (`id`, `nilai_un`, `nilai_us`, `nilai_uts_1`, `status`, `pendaftar_id`) VALUES
-(3, 80, 90, 100, 1, 4);
+(1, 80, 80, 80, 1, 1),
+(2, 90, 90, 90, 1, 2),
+(3, 80, 80, 80, 2, 3),
+(4, 90, 90, 90, 0, 4),
+(5, 70, 80, 80, 0, 5);
 
 -- --------------------------------------------------------
 
@@ -60,6 +64,7 @@ CREATE TABLE `pendaftar` (
   `alamat` text,
   `email` varchar(100) DEFAULT NULL,
   `telepon` varchar(45) DEFAULT NULL,
+  `foto` varchar(100) NOT NULL,
   `users_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -67,11 +72,12 @@ CREATE TABLE `pendaftar` (
 -- Dumping data for table `pendaftar`
 --
 
-INSERT INTO `pendaftar` (`id`, `nama`, `tmpt_lahir`, `tgl_lahir`, `jenis_kelamin`, `agama`, `alamat`, `email`, `telepon`, `users_id`) VALUES
-(1, 'anton', 'banywuangi', '1999-12-31', 'L', 'islam', 'banywuangi', 'anton@mail.com', '12345678', 3),
-(2, 'ada', 'ada', '2020-01-07', 'L', 'islam', 'ada', 'ada@gmail.com', '123456', 4),
-(3, 'Bowo', 'Banywuangi', '1999-12-12', 'L', 'islam', 'Banyuwangi', 'bowo@gmail.com', '12345678', 5),
-(4, 'toni', 'banyuwangi', '2020-01-31', 'L', 'islam', 'banyuwangi', 'toni@gmail.com', '082302002407', 7);
+INSERT INTO `pendaftar` (`id`, `nama`, `tmpt_lahir`, `tgl_lahir`, `jenis_kelamin`, `agama`, `alamat`, `email`, `telepon`, `foto`, `users_id`) VALUES
+(1, 'Edi Siswanto', 'Banyuwangi', '1999-06-22', 'L', 'islam', 'Toyamas, wringin rejo, Gambiran kabupaten Banyuwangi', 'est23.edi@gmail.com', '082302002407', '', 9),
+(2, 'anton', 'Banyuwangi', '1998-08-12', 'L', 'islam', 'Toyamas, wringin rejo, Gambiran kabupaten Banyuwangi', 'anton@gmail.com', '082302002407', '', 10),
+(3, 'Tini', 'Banyuwangi', '1999-01-11', 'P', 'islam', 'Toyamas, wringin rejo, Gambiran kabupaten Banyuwangi', 'tini@gmail.com', '08123456789', '', 11),
+(4, 'Parman', 'Banyuwangi', '1999-01-01', 'L', 'islam', 'Toyamas, wringin rejo, Gambiran kabupaten Banyuwangi', 'parman@gmail.com', '08123456789', '', 12),
+(5, 'Armin', 'Jember', '1999-06-12', 'P', 'islam', 'Jember, Sumber sari, rt 03. rw 04', 'armin@gmail.com', '081234567543', 'Armin.png', 13);
 
 -- --------------------------------------------------------
 
@@ -92,13 +98,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nama`, `username`, `password`, `level`) VALUES
-(1, 'edi', 'root', '81dc9bdb52d04dc20036dbd8313ed055', 'siswa'),
-(2, 'ada', 'est23.edi@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'siswa'),
-(3, 'anton', 'anton@mail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'siswa'),
-(4, 'ada', 'ada@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'siswa'),
-(5, 'Bowo', 'bowo@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'siswa'),
-(7, 'toni', 'toni@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'siswa'),
-(8, 'Administrator', 'admin@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'admin');
+(8, 'Administrator', 'admin@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'admin'),
+(9, 'Edi Siswanto', 'est23.edi@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'siswa'),
+(10, 'anton', 'anton@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'siswa'),
+(11, 'Tini', 'tini@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'siswa'),
+(12, 'Parman', 'parman@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'siswa'),
+(13, 'Armin', 'armin@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'siswa');
 
 --
 -- Indexes for dumped tables
@@ -134,19 +139,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `nilai`
 --
 ALTER TABLE `nilai`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `pendaftar`
 --
 ALTER TABLE `pendaftar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
