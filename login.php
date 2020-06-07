@@ -50,17 +50,41 @@
 
                     <h1 class="h4 text-gray-900">Aplikasi Pendaftaran Siswa</h1>
                     <h1 class="h4 text-gray-900 mb-4"><b>SMKN Darul Ulum Muncar</b></h1>
+
+                    <?php 
+                    session_start();
+                    
+                    if(isset($_SESSION['pesan_registrasi'])) { ?>
+
+                    <div class="alert alert-success">
+                      <?= $_SESSION['pesan_registrasi'] ?>
+                    </div>
+ 
+                    <?php } 
+                    
+                    if(isset($_SESSION['login_error'])) { ?>
+
+                    <div class="alert alert-danger">
+                      <?= $_SESSION['login_error'] ?>
+                    </div>
+
+                    <?php } 
+                    
+                    session_destroy();
+                    
+                    ?>
+
                   </div>
-                  <form class="user">
+                  <form class="user" action="login_control.php" method="POST">
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="username" placeholder="Masukkan Username...">
+                      <input type="text" name="username" class="form-control form-control-user" id="username" placeholder="Masukkan Username...">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                      <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
                     </div>
-                    <a href="" class="btn btn-primary btn-user btn-block">
+                    <button type="submit" name="btn_login" value="login" href="" class="btn btn-primary btn-user btn-block">
                       Login
-                    </a>
+                    </button>
                   </form>
                   <hr>
                   <div class="text-center">
@@ -77,7 +101,7 @@
     </div>
 
   </div>
-
+    
   <!-- Bootstrap core JavaScript-->
   <script src="assets/vendor/jquery/jquery.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -87,6 +111,8 @@
 
   <!-- Custom scripts for all pages-->
   <script src="assets/js/sb-admin-2.min.js"></script>
+
+ 
 
 </body>
 
